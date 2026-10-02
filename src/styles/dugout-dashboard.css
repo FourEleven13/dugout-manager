@@ -1,0 +1,629 @@
+.dugout-app {
+  --primary: #286a9f;
+  --primary-dark: #174e78;
+  --danger: #b84242;
+  --card-bg: #ffffff;
+  --text-dark: #212121;
+  --text-muted: #666666;
+  --border: #e0e0e0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  margin: 0;
+  padding: 16px;
+  background-color: #f6f4ef;
+  color: var(--text-dark);
+  min-height: calc(100vh - 52px);
+}
+
+.dugout-top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: var(--card-bg);
+  padding: 12px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  margin-bottom: 16px;
+}
+
+.dugout-metrics {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.dugout-metric-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.dugout-metric-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.dugout-metric-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+.dugout-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dugout-toolbar select,
+.dugout-toolbar button {
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--border);
+}
+
+.dugout-toolbar select {
+  background: #ffffff;
+  outline: none;
+}
+
+.dugout-btn-primary {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+}
+
+.dugout-btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.dugout-btn-success {
+  background: #2e7d32;
+  color: #fff;
+  border: none;
+}
+
+.dugout-btn-success:hover {
+  background: #1b5e20;
+}
+
+.dugout-container {
+  display: grid;
+  grid-template-columns: minmax(320px, 520px) 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 960px) {
+  .dugout-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dugout-field-card,
+.dugout-roster-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.dugout-diamond-container {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #2e7d32;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.dugout-field-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.dugout-position-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 86px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid #333333;
+  border-radius: 6px;
+  padding: 4px;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+.dugout-pos-badge {
+  font-size: 10px;
+  font-weight: 800;
+  color: #ffffff;
+  padding: 1px 4px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 2px;
+}
+
+.dugout-pos-P,
+.dugout-pos-C {
+  background: #c62828;
+}
+
+.dugout-pos-1B,
+.dugout-pos-2B,
+.dugout-pos-3B,
+.dugout-pos-SS {
+  background: #1565c0;
+}
+
+.dugout-pos-LF,
+.dugout-pos-CF,
+.dugout-pos-RF {
+  background: #2e7d32;
+}
+
+.dugout-player-name {
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #111;
+}
+
+.dugout-bench-row {
+  margin-top: 12px;
+  background: #eceff1;
+  padding: 8px 12px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+}
+
+.dugout-bench-label {
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--danger);
+  white-space: nowrap;
+}
+
+.dugout-bench-chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+
+.dugout-bench-chip {
+  background: #ffffff;
+  border: 1px solid #cfd8dc;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.dugout-table-wrapper {
+  flex: 1;
+  overflow: auto;
+  max-height: 520px;
+}
+
+.dugout-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.dugout-table th,
+.dugout-table td {
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.dugout-table th {
+  background: #f8f9fa;
+  position: sticky;
+  top: 0;
+  font-weight: 700;
+  color: var(--text-muted);
+  z-index: 1;
+}
+
+.dugout-table-select {
+  height: 28px;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  max-width: 100%;
+}
+
+.dugout-active-inning-col {
+  background: #e3f2fd;
+  font-weight: 700;
+}
+
+.dugout-empty-roster {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.dugout-alert-panel,
+.dugout-alert {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  border: 1px solid var(--border);
+}
+
+.dugout-alert-error {
+  border-color: #fecaca;
+  background: #fff7f7;
+  color: #991b1b;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.dugout-alert-success {
+  border-color: #bbf7d0;
+  background: #f0fdf4;
+  color: #166534;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.dugout-alert-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.dugout-alert-heading span {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.dugout-alert-list {
+  display: grid;
+  gap: 7px;
+}
+
+.dugout-warning-row {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  padding: 8px 10px;
+  border-radius: 7px;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.dugout-warning-row strong {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.dugout-warning-warning {
+  background: #fffbeb;
+  color: #92400e;
+}
+
+.dugout-warning-error {
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+.dugout-warning-icon {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 720px) {
+  .dugout-app {
+    padding: 10px;
+  }
+
+  .dugout-top-nav {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .dugout-metrics {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .dugout-metric-item {
+    background: #f8fafc;
+    padding: 8px;
+    border-radius: 7px;
+  }
+
+  .dugout-metric-value {
+    font-size: 15px;
+  }
+
+  .dugout-toolbar {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dugout-toolbar label {
+    grid-column: 1 / -1;
+  }
+
+  .dugout-toolbar select,
+  .dugout-toolbar button {
+    width: 100%;
+    min-height: 44px;
+  }
+
+  .dugout-container {
+    gap: 10px;
+  }
+
+  .dugout-field-card,
+  .dugout-roster-card {
+    padding: 10px;
+  }
+
+  .dugout-diamond-container {
+    max-width: 390px;
+  }
+
+  .dugout-position-node {
+    width: 70px;
+  }
+
+  .dugout-player-name {
+    font-size: 10px;
+  }
+
+  .dugout-table-wrapper {
+    margin: 0 -10px;
+    padding: 0 10px;
+    max-height: none;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .dugout-table {
+    min-width: 720px;
+  }
+
+  .dugout-alert-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2px;
+  }
+}
+
+/* Spreadsheet-style roster editor */
+.roster-sheet {
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+.roster-sheet-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.roster-sheet-header h3 {
+  margin: 0;
+  color: #0b1f33;
+  font-size: 18px;
+}
+
+.roster-sheet-header p {
+  margin: 4px 0 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.roster-count {
+  white-space: nowrap;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.roster-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.roster-table {
+  width: 100%;
+  min-width: 820px;
+  border-collapse: collapse;
+  color: #0b1f33;
+}
+
+.roster-table th,
+.roster-table td {
+  border-right: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.roster-table th {
+  height: 42px;
+  padding: 6px 8px;
+  background: #f8fafc;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.roster-table td {
+  height: 48px;
+  padding: 4px 6px;
+  background: #ffffff;
+}
+
+.roster-table tbody tr:hover td {
+  background: #f8fafc;
+}
+
+.player-column {
+  min-width: 190px;
+  text-align: left !important;
+}
+
+.number-column {
+  width: 60px;
+}
+
+.position-column {
+  width: 54px;
+  min-width: 54px;
+}
+
+.remove-column {
+  width: 44px;
+}
+
+.roster-text-input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: #0b1f33;
+  font: inherit;
+  padding: 8px 7px;
+  outline: none;
+}
+
+.roster-text-input:hover,
+.roster-text-input:focus {
+  border-color: #93c5fd;
+  background: #ffffff;
+}
+
+.player-name-input {
+  font-weight: 600;
+}
+
+.number-input {
+  text-align: center;
+}
+
+.checkbox-cell {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.checkbox-cell input[type="checkbox"] {
+  width: 21px;
+  height: 21px;
+  margin: 0;
+  cursor: pointer;
+  accent-color: #1f7a53;
+}
+
+.remove-cell,
+.add-cell {
+  text-align: center;
+}
+
+.remove-player-button,
+.add-player-button {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.remove-player-button {
+  background: transparent;
+  color: #94a3b8;
+}
+
+.remove-player-button:hover {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.add-player-row td {
+  background: #f8fafc;
+}
+
+.add-player-button {
+  background: #1f7a53;
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.add-player-button:hover {
+  background: #1d4ed8;
+}
+
+.roster-sheet-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  color: #64748b;
+  font-size: 12px;
+  background: #f8fafc;
+}
+
+@media (max-width: 640px) {
+  .roster-sheet-header {
+    align-items: flex-start;
+  }
+
+  .roster-sheet-header p {
+    max-width: 250px;
+  }
+
+  .roster-sheet-footer {
+    flex-direction: column;
+  }
+}
